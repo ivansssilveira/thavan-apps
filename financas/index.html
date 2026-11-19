@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#6B58A6">
+  <title>🪻 Finanças da Casita · Guia Rápido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    :root {
+      --chao: #F4F1F9;
+      --papel: #FFFFFF;
+      --lavanda: #C9BBEB;
+      --lavanda050: #F1ECFB;
+      --lavanda-tinta: #6B58A6;
+      --tinta: #3A3150;
+      --apoio: #6E6487;
+      --linha: #DCD5EB;
+
+      --ivan: #5C969C;
+      --ivan-sombra: #46707E;
+      --ivan-claro: #E3EFF0;
+
+      --thais: #CA79A6;
+      --thais-roxo: #A985AF;
+      --thais-rosa-claro: #D0ABBC;
+      --thais-azul: #93A1C2;
+      --thais-claro: #F6E7EF;
+      --dourado: #E0BC84;
+      --dourado-claro: #F8EEDC;
+
+      --bambu: #687C5A;
+      --bambu-claro: #E7EDE2;
+      --coral: #E2583E;
+      --coral-claro: #FBE3DD;
+      --predio: #848786;
+      --predio-claro: #ECECEB;
+
+      --kiara-pelo: #E6923C;
+      --kiara-coleira: #9670A8;
+      --rakin-pelo: #98949C;
+      --rakin-coleira: #B64C48;
+
+      --accent: var(--lavanda-tinta);
+      --accent-soft: var(--lavanda050);
+
+      --r-sm: 10px;
+      --r-lg: 14px;
+      --f-display: "Fredoka", system-ui, sans-serif;
+      --f-body: "Nunito", system-ui, -apple-system, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --chao: #16131E;
+        --papel: #211D2E;
+        --lavanda: #9B88CC;
+        --lavanda050: #2C2640;
+        --lavanda-tinta: #D7CBF5;
+        --tinta: #F2EFF9;
+        --apoio: #B7AFC9;
+        --linha: #3A334D;
+
+        --ivan-claro: #1B3336;
+        --ivan-sombra: #93CBD1;
+        --thais-claro: #382130;
+        --dourado-claro: #3B301B;
+        --bambu-claro: #232E1E;
+        --bambu: #9FC28A;
+        --coral-claro: #3E1F1B;
+        --coral: #F28B77;
+        --predio-claro: #2D2F2E;
+        --predio: #C3C6C5;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --chao: #16131E;
+      --papel: #211D2E;
+      --lavanda: #9B88CC;
+      --lavanda050: #2C2640;
+      --lavanda-tinta: #D7CBF5;
+      --tinta: #F2EFF9;
+      --apoio: #B7AFC9;
+      --linha: #3A334D;
+
+      --ivan-claro: #1B3336;
+      --ivan-sombra: #93CBD1;
+      --thais-claro: #382130;
+      --dourado-claro: #3B301B;
+      --bambu-claro: #232E1E;
+      --bambu: #9FC28A;
+      --coral-claro: #3E1F1B;
+      --coral: #F28B77;
+      --predio-claro: #2D2F2E;
+      --predio: #C3C6C5;
+      color-scheme: dark;
+    }
+
+    :root[data-person="ivan"] {
+      --accent: var(--ivan-sombra);
+      --accent-soft: var(--ivan-claro);
+    }
+
+    :root[data-person="thais"] {
+      --accent: var(--thais);
+      --accent-soft: var(--thais-claro);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--chao);
+      color: var(--tinta);
+      font-family: var(--f-body);
+      font-size: 16px;
+      line-height: 1.5;
+      padding-bottom: 48px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--chao);
+      border-bottom: 1px solid var(--linha);
+      padding: 12px 16px;
+      box-shadow: 0 4px 16px rgba(58, 49, 80, 0.06);
+    }
+
+    .topbar-inner, .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .back-link {
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--linha);
+      background: var(--papel);
+      color: var(--tinta);
+      text-decoration: none;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 1.28rem;
+      line-height: 1.15;
+      color: var(--lavanda-tinta);
+    }
+
+    .brand-sub {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--apoio);
+    }
+
+    .theme-btn {
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--linha);
+      background: var(--papel);
+      color: var(--tinta);
+      font-size: 1.1rem;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .selectors-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 600px) {
+      .selectors-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      h1 { font-size: 1.45rem; }
+    }
+
+    .seg-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .seg-label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--apoio);
+    }
+
+    .seg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      border-radius: var(--r-sm);
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .seg button {
+      min-height: 44px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--apoio);
+      font-family: var(--f-body);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 6px 10px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .seg button[aria-pressed="true"] {
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    :root[data-theme="dark"] .seg button[aria-pressed="true"] {
+      color: #16131E;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .seg button[aria-pressed="true"] {
+        color: #16131E;
+      }
+    }
+
+    button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible {
+      outline: 3px solid var(--ivan);
+      outline-offset: 2px;
+    }
+
+    .wrap {
+      padding: 18px 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 1.22rem;
+      color: var(--lavanda-tinta);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .shield-banner {
+      background: var(--lavanda050);
+      border-left: 4px solid var(--lavanda-tinta);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+      font-size: 0.94rem;
+    }
+
+    .shield-banner strong { color: var(--lavanda-tinta); }
+
+    /* Stepper 3 Atos */
+    .acts-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .act-btn {
+      min-height: 54px;
+      border: 1px solid var(--linha);
+      border-radius: var(--r-sm);
+      background: var(--chao);
+      color: var(--tinta);
+      font-family: var(--f-body);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 6px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      text-align: center;
+    }
+
+    .act-btn[aria-selected="true"] {
+      background: var(--lavanda050);
+      border-color: var(--lavanda-tinta);
+      color: var(--lavanda-tinta);
+      box-shadow: 0 0 0 1px var(--lavanda-tinta) inset;
+    }
+
+    .act-detail {
+      background: var(--chao);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+      font-size: 0.94rem;
+    }
+
+    .act-detail p { margin: 0; }
+
+    /* Passo a passo */
+    .steps-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      background: var(--chao);
+      border-radius: var(--r-sm);
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.86rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    :root[data-theme="dark"] .step-num { color: #16131E; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .step-num { color: #16131E; }
+    }
+
+    .step-body {
+      font-size: 0.94rem;
+    }
+
+    .code-chip {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 6px;
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      font-weight: 800;
+      font-size: 0.88em;
+      color: var(--tinta);
+    }
+
+    .tip-note {
+      font-size: 0.86rem;
+      color: var(--apoio);
+      background: var(--chao);
+      border-radius: var(--r-sm);
+      padding: 10px 12px;
+      border: 1px dashed var(--linha);
+    }
+
+    /* Simulador Vivo */
+    .sim-box {
+      border: 2px solid var(--lavanda);
+      border-radius: var(--r-sm);
+      padding: 14px;
+      background: var(--chao);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sim-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--lavanda-tinta);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sim-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 12px;
+      border-radius: var(--r-sm);
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    @media (min-width: 600px) {
+      .sim-row {
+        grid-template-columns: 1.3fr 1fr auto;
+        align-items: center;
+      }
+    }
+
+    .sim-row[data-state="pendente"] { background: var(--dourado-claro); border-color: var(--dourado); }
+    .sim-row[data-state="Casa"] { background: var(--lavanda050); border-color: var(--lavanda); }
+    .sim-row[data-state="Ivan"] { background: var(--ivan-claro); border-color: var(--ivan); }
+    .sim-row[data-state="Thaís"] { background: var(--thais-claro); border-color: var(--thais); }
+    .sim-row[data-state="Terceiro"] { background: var(--predio-claro); border-color: var(--predio); }
+
+    .sim-meta { font-size: 0.8rem; color: var(--apoio); }
+    .sim-desc { font-weight: 800; font-size: 0.98rem; }
+
+    .sim-select {
+      min-height: 44px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--linha);
+      background: var(--papel);
+      color: var(--tinta);
+      font-family: var(--f-body);
+      font-size: 0.94rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    .sim-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .sim-check input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--bambu);
+      cursor: pointer;
+    }
+
+    .sim-feedback {
+      margin: 0;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--tinta);
+    }
+
+    /* Oráculo / Buscador */
+    .search-input {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 14px;
+      border-radius: var(--r-sm);
+      border: 2px solid var(--linha);
+      background: var(--chao);
+      color: var(--tinta);
+      font-family: var(--f-body);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .search-input:focus {
+      border-color: var(--lavanda-tinta);
+    }
+
+    .chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      min-height: 40px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--linha);
+      background: var(--chao);
+      color: var(--apoio);
+      font-family: var(--f-body);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .chip[aria-pressed="true"] {
+      background: var(--lavanda-tinta);
+      border-color: var(--lavanda-tinta);
+      color: #FFFFFF;
+    }
+
+    :root[data-theme="dark"] .chip[aria-pressed="true"] { color: #16131E; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .chip[aria-pressed="true"] { color: #16131E; }
+    }
+
+    .oracle-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 600px) {
+      .oracle-list { grid-template-columns: 1fr 1fr; }
+    }
+
+    .oracle-item {
+      border: 1px solid var(--linha);
+      border-radius: var(--r-sm);
+      padding: 10px 12px;
+      background: var(--chao);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .oracle-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .oracle-title {
+      font-weight: 800;
+      font-size: 0.94rem;
+    }
+
+    .oracle-rule {
+      font-size: 0.84rem;
+      color: var(--apoio);
+      margin: 0;
+    }
+
+    .tag-badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tag-casa { background: var(--lavanda050); color: var(--lavanda-tinta); border: 1px solid var(--lavanda); }
+    .tag-ivan { background: var(--ivan-claro); color: var(--ivan-sombra); border: 1px solid var(--ivan); }
+    .tag-thais { background: var(--thais-claro); color: var(--thais); border: 1px solid var(--thais); }
+    .tag-terceiro { background: var(--predio-claro); color: var(--predio); border: 1px solid var(--predio); }
+    .tag-mista { background: var(--dourado-claro); color: var(--tinta); border: 1px solid var(--dourado); }
+
+    .mixed-callout {
+      background: linear-gradient(135deg, var(--lavanda050), var(--thais-claro));
+      border: 1px solid var(--lavanda);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+      font-size: 0.88rem;
+    }
+
+    .mixed-examples {
+      margin: 6px 0 0;
+      padding-left: 18px;
+      font-size: 0.84rem;
+    }
+
+    /* Sub-abas Acertos & Validação */
+    .subtabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      background: var(--chao);
+      padding: 4px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--linha);
+    }
+
+    .subtab-btn {
+      min-height: 44px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--apoio);
+      font-family: var(--f-body);
+      font-weight: 800;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+
+    .subtab-btn[aria-selected="true"] {
+      background: var(--papel);
+      color: var(--lavanda-tinta);
+      box-shadow: 0 2px 6px rgba(58, 49, 80, 0.08);
+    }
+
+    .mock-acerto {
+      background: var(--lavanda050);
+      border: 1px solid var(--lavanda);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+    }
+
+    .mock-acerto-title {
+      font-family: var(--f-display);
+      font-size: 0.96rem;
+      color: var(--lavanda-tinta);
+      font-weight: 600;
+    }
+
+    .mock-acerto-phrase {
+      font-family: var(--f-display);
+      font-size: 1.15rem;
+      color: var(--thais);
+      font-weight: 600;
+      margin: 4px 0 2px;
+    }
+
+    .mock-acerto-sub {
+      font-size: 0.8rem;
+      color: var(--apoio);
+    }
+
+    .pix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .pix-field {
+      background: var(--chao);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.85rem;
+    }
+
+    .pix-field strong { display: block; color: var(--lavanda-tinta); font-size: 0.78rem; text-transform: uppercase; }
+
+    .semaforo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 600px) {
+      .semaforo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .sem-btn {
+      min-height: 44px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--linha);
+      padding: 10px;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--f-body);
+      color: var(--tinta);
+      background: var(--chao);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sem-btn[data-kind="aberto"] { background: var(--coral-claro); border-color: var(--coral); }
+    .sem-btn[data-kind="ciente"] { background: var(--dourado-claro); border-color: var(--dourado); }
+    .sem-btn[data-kind="resolvido"] { background: var(--bambu-claro); border-color: var(--bambu); }
+    .sem-btn[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--tinta) inset; }
+
+    .sem-title { font-weight: 800; font-size: 0.92rem; }
+    .sem-desc { font-size: 0.8rem; color: var(--apoio); }
+
+    /* Checklist da Sexta */
+    .progress-track {
+      height: 10px;
+      border-radius: 999px;
+      background: var(--chao);
+      overflow: hidden;
+      border: 1px solid var(--linha);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--ivan), var(--thais));
+      transition: width 0.25s ease;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 10px 12px;
+      border-radius: var(--r-sm);
+      background: var(--chao);
+      border: 1px solid var(--linha);
+      cursor: pointer;
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .check-item input {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--lavanda-tinta);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .check-item.done {
+      background: var(--bambu-claro);
+      border-color: var(--bambu);
+      text-decoration: line-through;
+      color: var(--apoio);
+    }
+
+    .btn-ghost {
+      min-height: 44px;
+      padding: 8px 14px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--linha);
+      background: transparent;
+      color: var(--apoio);
+      font-family: var(--f-body);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    .done-banner {
+      padding: 10px 12px;
+      border-radius: var(--r-sm);
+      background: var(--bambu-claro);
+      color: var(--bambu);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      max-width: 720px;
+      margin: 18px auto 0;
+      padding: 0 16px;
+      font-size: 0.84rem;
+      color: var(--apoio);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .pets-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .dot-pet {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-row">
+        <div class="brand-left">
+          <a class="back-link" href="../" aria-label="Voltar para Thavan Apps" title="Thavan Apps">←</a>
+          <div>
+            <h1>🪻 Finanças da Casita · Guia</h1>
+            <p class="brand-sub">Operação prática da planilha · 10 min na semana</p>
+          </div>
+        </div>
+        <button type="button" class="theme-btn" id="themeBtn" aria-label="Alternar tema claro ou escuro" title="Alternar tema">☀️</button>
+      </div>
+
+      <div class="selectors-grid">
+        <div class="seg-group">
+          <span class="seg-label">Quem está usando</span>
+          <div class="seg" role="group" aria-label="Selecionar pessoa">
+            <button type="button" id="btnIvan" aria-pressed="true">🧔 Ivan</button>
+            <button type="button" id="btnThais" aria-pressed="false">👩‍🦰 Thaís</button>
+          </div>
+        </div>
+        <div class="seg-group">
+          <span class="seg-label">Onde você está</span>
+          <div class="seg" role="group" aria-label="Selecionar aparelho">
+            <button type="button" id="btnMobile" aria-pressed="false">📱 Celular</button>
+            <button type="button" id="btnDesktop" aria-pressed="true">💻 Computador</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Bloco 1: Regra de Ouro + 3 Atos -->
+    <section class="card" aria-labelledby="t1">
+      <div class="card-header">
+        <h2 id="t1">🛡️ Regra de Ouro &amp; Fluxo em 3 Atos</h2>
+        <span class="pill" id="profileBadge">Visão de Ivan</span>
+      </div>
+
+      <div class="shield-banner">
+        <strong>Você nunca vai quebrar a planilha.</strong> Todas as fórmulas, metas e cálculos vivem protegidos em abas ocultas. Os extratos entram sozinhos — nossa única missão é marcar <strong>De quem é</strong> cada compra.
+      </div>
+
+      <div class="acts-tabs" role="tablist" aria-label="Três atos do fluxo">
+        <button type="button" class="act-btn" role="tab" aria-selected="true" data-act="0">
+          <span>🤖 Ato 1</span>
+          <small>Robô importa</small>
+        </button>
+        <button type="button" class="act-btn" role="tab" aria-selected="false" data-act="1">
+          <span>👥 Ato 2</span>
+          <small>Casal classifica</small>
+        </button>
+        <button type="button" class="act-btn" role="tab" aria-selected="false" data-act="2">
+          <span>⚖️ Ato 3</span>
+          <small>Planilha calcula</small>
+        </button>
+      </div>
+      <div class="act-detail" id="actDetail" aria-live="polite"></div>
+    </section>
+
+    <!-- Bloco 2: Passo a Passo Guiado + Simulador -->
+    <section class="card" aria-labelledby="t2">
+      <div class="card-header">
+        <h2 id="t2">📋 Como Marcar em <span id="deviceTitle">Celular</span></h2>
+        <span class="pill" id="filterNamePill">🧔 Meus pendentes</span>
+      </div>
+
+      <ol class="steps-list" id="stepsList"></ol>
+      <div class="tip-note" id="deviceTip"></div>
+
+      <div class="sim-box">
+        <div class="sim-head">
+          <span>✨ Teste aqui sem medo (linha fictícia)</span>
+          <span id="simStatusBadge">Pendente (dourado)</span>
+        </div>
+        <div class="sim-row" id="simRow" data-state="pendente">
+          <div>
+            <div class="sim-meta">19/11 · Cartão (exemplo ilustrativo)</div>
+            <div class="sim-desc">Mercado da Semana · R$ 180,00</div>
+          </div>
+          <div>
+            <select id="simSelect" class="sim-select" aria-label="Simular De quem é">
+              <option value="pendente">(em branco — pendente)</option>
+              <option value="Casa">Casa</option>
+              <option value="Ivan">Ivan</option>
+              <option value="Thaís">Thaís</option>
+              <option value="Terceiro">Terceiro</option>
+            </select>
+          </div>
+          <label class="sim-check">
+            <input type="checkbox" id="simCheck">
+            <span>Conferido</span>
+          </label>
+        </div>
+        <p class="sim-feedback" id="simFeedback">Escolha um dono acima para ver como a linha muda de cor na planilha real.</p>
+      </div>
+    </section>
+
+    <!-- Bloco 3: Oráculo De quem é essa compra -->
+    <section class="card" aria-labelledby="t3">
+      <div class="card-header">
+        <h2 id="t3">🔎 De quem é essa compra?</h2>
+      </div>
+
+      <input
+        type="search"
+        id="oracleSearch"
+        class="search-input"
+        placeholder="Digite: Guanabara, Kiara, Rakin, Uber, farmácia, SSD, salão..."
+        autocomplete="off"
+        aria-label="Buscar tipo de compra"
+      >
+
+      <div class="chips" role="group" aria-label="Filtrar categoria do oráculo">
+        <button type="button" class="chip" data-filter="todos" aria-pressed="true">Todos</button>
+        <button type="button" class="chip" data-filter="Casa" aria-pressed="false">🪻 Casa</button>
+        <button type="button" class="chip" data-filter="Ivan" aria-pressed="false">🧔 Ivan</button>
+        <button type="button" class="chip" data-filter="Thaís" aria-pressed="false">👩‍🦰 Thaís</button>
+        <button type="button" class="chip" data-filter="Terceiro" aria-pressed="false">👥 Terceiro</button>
+        <button type="button" class="chip" data-filter="Mista" aria-pressed="false">🔀 Mista</button>
+      </div>
+
+      <div class="oracle-list" id="oracleList" aria-live="polite"></div>
+
+      <div class="mixed-callout">
+        <strong>🔀 E se uma compra misturar Casa e pessoal?</strong><br>
+        Na auditoria fina, a linha ganha um marcador padronizado com a fatura e cada fatia em separado (omitindo fatias sem itens):
+        <ul class="mixed-examples">
+          <li><code>Mercado Livre - fatura MM/AA - Fatia Casa</code></li>
+          <li><code>Mercado Livre - fatura MM/AA - Fatia Ivan</code></li>
+          <li><code>Mercado Livre - fatura MM/AA - Fatia Thaís</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bloco 4: Acertos & Validação -->
+    <section class="card" aria-labelledby="t4">
+      <div class="card-header">
+        <h2 id="t4">⚖️ Acertos &amp; 🚦 Validação</h2>
+      </div>
+
+      <div class="subtabs" role="tablist" aria-label="Alternar entre Acertos e Validação">
+        <button type="button" class="subtab-btn" role="tab" id="tabAcertos" aria-selected="true">⚖️ Aba Acertos</button>
+        <button type="button" class="subtab-btn" role="tab" id="tabValidacao" aria-selected="false">🚦 Aba Validação</button>
+      </div>
+
+      <div id="panelAcertos">
+        <div class="mock-acerto">
+          <div class="mock-acerto-title">⚖️ Falta acertar (colunas H:L · exemplo ilustrativo)</div>
+          <div class="mock-acerto-phrase">👩‍🦰 Thaís completa R$ 500 na 🪻 Casa</div>
+          <div class="mock-acerto-sub">No dia a dia real, esse bloco espelha sozinho o mês escolhido no seletor C2 do Painel.</div>
+        </div>
+        <p style="margin:12px 0 8px;font-size:0.92rem;font-weight:700;">Fez o Pix? Preencha 1 linha na tabela da aba <code>Acertos</code>:</p>
+        <div class="pix-grid">
+          <div class="pix-field"><strong>1 · Data</strong>Dia exato do Pix</div>
+          <div class="pix-field"><strong>2 · De quem</strong>Quem enviou (Ivan/Thaís)</div>
+          <div class="pix-field"><strong>3 · Para quem</strong>Quem recebeu (ou Casa)</div>
+          <div class="pix-field"><strong>4 · Valor</strong>Valor transferido</div>
+          <div class="pix-field"><strong>5 · Descrição</strong>Ex.: Acerto da Casa mês MM</div>
+          <div class="pix-field"><strong>6 · Conta no acerto?</strong>Marque <strong>Sim</strong> p/ abater</div>
+        </div>
+      </div>
+
+      <div id="panelValidacao" hidden>
+        <p style="margin:0 0 10px;font-size:0.92rem;">A aba <code>Validação</code> aponta só o que pede um olhar humano. Toque em um status:</p>
+        <div class="semaforo-grid" role="group" aria-label="Status da Validação">
+          <button type="button" class="sem-btn" data-kind="aberto" aria-pressed="true">
+            <span class="sem-title">🔴 aberto</span>
+            <span class="sem-desc">Algo novo pede revisão</span>
+          </button>
+          <button type="button" class="sem-btn" data-kind="ciente" aria-pressed="false">
+            <span class="sem-title">🟡 ciente</span>
+            <span class="sem-desc">Já vimos e aceitamos</span>
+          </button>
+          <button type="button" class="sem-btn" data-kind="resolvido" aria-pressed="false">
+            <span class="sem-title">🟢 resolvido</span>
+            <span class="sem-desc">Pendência tratada</span>
+          </button>
+        </div>
+        <div class="act-detail" id="semDetail" style="margin-top:10px;"></div>
+        <div class="tip-note" style="margin-top:10px;">
+          <strong>↗ abrir linha (coluna G):</strong> clique no link azul da coluna G para pular direto para a linha exata da compra em <code>Lançamentos</code>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloco 5: Checklist Vivo da Sexta -->
+    <section class="card" aria-labelledby="t5">
+      <div class="card-header">
+        <h2 id="t5">✅ Checklist da Sexta das Finanças</h2>
+        <span class="pill" id="checkCountPill">0 / 4 feitos</span>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="checklist" id="checklistBox"></div>
+
+      <div class="done-banner" id="doneBanner" hidden>
+        🎉 Tudo fechado por esta semana! Zero pendentes na Casita.
+      </div>
+
+      <button type="button" class="btn-ghost" id="resetChecklistBtn">Zerar para a próxima sexta</button>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>📌 Fixar no celular como app:</strong> no Android (Chrome), toque em <strong>⋯ → Adicionar à tela inicial</strong>. No iPhone (Safari), toque em <strong>Compartilhar → Adicionar à Tela de Início</strong>.
+    </div>
+    <div>
+      🔒 Os links privados da <strong>Planilha</strong> e do <strong>Looker Studio</strong> ficam no Google Doc <em>"🪻 Guia Interativo da Casita (Abrir App)"</em> dentro da pasta <code>02_Financas</code> no Google Drive.
+    </div>
+    <div class="pets-note">
+      Identidade visual Thavan ·
+      <span><span class="dot-pet" style="background:var(--ivan)"></span> Ivan</span>
+      <span><span class="dot-pet" style="background:var(--thais)"></span> Thaís</span>
+      <span><span class="dot-pet" style="background:var(--kiara-pelo);border:2px solid var(--kiara-coleira)"></span> Kiara</span>
+      <span><span class="dot-pet" style="background:var(--rakin-pelo);border:2px solid var(--rakin-coleira)"></span> Rakin</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const STORAGE_PREFS = "thavan_financas_prefs_v1";
+      const STORAGE_CHECK = "thavan_financas_checklist_v1";
+      const STORAGE_THEME = "thavan_theme";
+
+      const ACTS = [
+        {
+          title: "🤖 Robô importa os extratos",
+          text: "As faturas dos cartões e extratos bancários entram automaticamente na aba Lançamentos. Ninguém precisa digitar data, loja ou valor centavo por centavo."
+        },
+        {
+          title: "👥 O casal classifica os pendentes (5 a 10 min)",
+          text: "Cada pessoa abre apenas a sua visualização filtrada ('Meus pendentes'), escolhe quem é o dono (Casa, Ivan, Thaís ou Terceiro) nos itens dourados e marca Conferido."
+        },
+        {
+          title: "⚖️ A planilha fecha a conta sem calculadora",
+          text: "Com base na cota proporcional à renda daquele mês e no que cada um já pagou da Casa, a aba Acertos exibe exatamente quem faz o Pix de acerto."
+        }
+      ];
+
+      const ORACLE_ITEMS = [
+        { title: "Mercado & Supermercado", badge: "Casa", cls: "tag-casa", keys: "mercado supermercado guanabara atacadao carrefour assai feira hortifruti", rule: "Compras de despensa, alimentos da casa e compras semanais (ex.: Guanabara, Atacadão)." },
+        { title: "Padaria & Café do dia a dia", badge: "Casa", cls: "tag-casa", keys: "padaria pao leite cafe manha lanche casa", rule: "Pão, café, frios e compras cotidianas consumidas juntos em casa." },
+        { title: "Contas Fixas da Casa", badge: "Casa", cls: "tag-casa", keys: "luz energia gas internet claro condominio aluguel agua conta fixa", rule: "Despesas estruturais do apartamento: luz, gás, internet, condomínio e aluguel." },
+        { title: "Kiara & Rakin (Pets)", badge: "Casa", cls: "tag-casa", keys: "kiara rakin gato gatos pet pets racao areia sache veterinario petlove", rule: "Ração, sachês, areia higiênica, brinquedos, tapetes e veterinário da Kiara e do Rakin." },
+        { title: "Limpeza & Manutenção", badge: "Casa", cls: "tag-casa", keys: "limpeza detergente sabao lampada reforma conserto sifao filtro ferramenta casa", rule: "Produtos de limpeza, lâmpadas, consertos hidráulicos/elétricos e organização do lar." },
+        { title: "Eletrodomésticos & Utensílios", badge: "Casa", cls: "tag-casa", keys: "microondas micro-ondas cafeteira sanduicheira air fryer panela movel moveis", rule: "Eletrodomésticos e móveis de uso compartilhado da Casita." },
+        { title: "Transporte Conjunto", badge: "Casa", cls: "tag-casa", keys: "uber 99 taxi mercado compras juntos casal", rule: "Corridas de aplicativo feitas juntos ou transportando compras da casa (ex.: volta do mercado)." },
+        { title: "Farmácia Básica da Casa", badge: "Casa", cls: "tag-casa", keys: "farmacia remedio curativo basico casa", rule: "Itens de farmácia e higiene compartilhados da casa. Remédios exclusivos ficam com cada um." },
+        { title: "Eletrônicos & Impressão 3D do Ivan", badge: "Ivan", cls: "tag-ivan", keys: "ssd pc computador peca impressora 3d filamento bico ferramenta pessoal ivan", rule: "Peças de computador, SSD, filamentos, bicos 3D e ferramentas exclusivas de Ivan." },
+        { title: "Roupas, Assinaturas & Estudos (Ivan)", badge: "Ivan", cls: "tag-ivan", keys: "roupa tenis curso livro faculdade mestrado ia assinatura pessoal ivan", rule: "Vestuário, cursos, livros e assinaturas digitais estritamente individuais de Ivan." },
+        { title: "Estética, Salão & Roupas (Thaís)", badge: "Thaís", cls: "tag-thais", keys: "salao estetica cabelo unha maquiagem roupa sapato acessorio bolsa thais", rule: "Cuidados pessoais de estética, vestuário e acessórios individuais de Thaís." },
+        { title: "Cursos & Gastos Individuais (Thaís)", badge: "Thaís", cls: "tag-thais", keys: "curso livro formacao lanche fora pessoal trabalho thais", rule: "Formações, livros e refeições individuais fora da rotina conjunta da casa." },
+        { title: "Compras para Família ou Amigos", badge: "Terceiro", cls: "tag-terceiro", keys: "terceiro pai mae irmao irma amigo reembolso pix devolvido presente outro", rule: "Compra paga no seu cartão para outra pessoa que vai devolver 100% do valor. Não altera o rateio do casal." },
+        { title: "Compra Mista (ex.: Mercado Livre)", badge: "Mista", cls: "tag-mista", keys: "mercado livre amazon pedido junto misto mista fatia dividido parcelado", rule: "Quando o mesmo pedido traz itens da Casa e pessoais, divide-se proporcionalmente usando 'Mercado Livre - fatura MM/AA - Fatia <Nome>'." }
+      ];
+
+      const SEM_INFO = {
+        aberto: "🔴 Status aberto (fundo coral): a Validação encontrou algo que ainda não foi visto — como um teto de gasto acima do previsto ou cobrança de IOF/juros. Confira clicando em '↗ abrir linha'.",
+        ciente: "🟡 Status ciente (fundo dourado): vocês já abriram o lançamento, entenderam o motivo e optaram por deixar assim (ex.: 'sabemos por que o transporte subiu neste mês').",
+        resolvido: "🟢 Status resolvido (fundo bambu): a divergência foi corrigida ou ajustada na aba Lançamentos / Acertos."
+      };
+
+      const CHECK_ITEMS = [
+        "Abrir Lançamentos com 'Meus pendentes' e classificar todas as linhas douradas",
+        "Marcar 'Conferido = TRUE' nas compras que você acabou de revisar",
+        "Conferir o valor e quem paga no bloco '⚖️ Falta acertar' (aba Acertos)",
+        "Se houve Pix de acerto, lançar em Acertos com 'Conta no acerto? = Sim'"
+      ];
+
+      // Estado persistido
+      let prefs = { person: "ivan", device: window.innerWidth < 768 ? "mobile" : "desktop" };
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_PREFS) || "null");
+        if (saved && (saved.person === "ivan" || saved.person === "thais")) prefs.person = saved.person;
+        if (saved && (saved.device === "mobile" || saved.device === "desktop")) prefs.device = saved.device;
+      } catch (_) {}
+
+      let checklistState = [false, false, false, false];
+      try {
+        const sc = JSON.parse(localStorage.getItem(STORAGE_CHECK) || "null");
+        if (Array.isArray(sc) && sc.length === 4) checklistState = sc.map(Boolean);
+      } catch (_) {}
+
+      let oracleFilter = "todos";
+
+      function savePrefs() {
+        try { localStorage.setItem(STORAGE_PREFS, JSON.stringify(prefs)); } catch (_) {}
+      }
+
+      function normalize(str) {
+        return (str || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+
+      // Tema claro / escuro
+      const themeBtn = document.getElementById("themeBtn");
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem(STORAGE_THEME);
+      if (savedTheme === "light" || savedTheme === "dark") root.setAttribute("data-theme", savedTheme);
+
+      function updateThemeIcon() {
+        const dark = root.getAttribute("data-theme") === "dark" ||
+          (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        themeBtn.textContent = dark ? "🌙" : "☀️";
+      }
+      updateThemeIcon();
+      themeBtn.addEventListener("click", function () {
+        const darkNow = root.getAttribute("data-theme") === "dark" ||
+          (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        const next = darkNow ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem(STORAGE_THEME, next); } catch (_) {}
+        updateThemeIcon();
+      });
+
+      // Perfil + Dispositivo
+      const btnIvan = document.getElementById("btnIvan");
+      const btnThais = document.getElementById("btnThais");
+      const btnMobile = document.getElementById("btnMobile");
+      const btnDesktop = document.getElementById("btnDesktop");
+
+      function renderSelectorsAndSteps() {
+        root.setAttribute("data-person", prefs.person);
+        btnIvan.setAttribute("aria-pressed", String(prefs.person === "ivan"));
+        btnThais.setAttribute("aria-pressed", String(prefs.person === "thais"));
+        btnMobile.setAttribute("aria-pressed", String(prefs.device === "mobile"));
+        btnDesktop.setAttribute("aria-pressed", String(prefs.device === "desktop"));
+
+        const viewName = prefs.person === "ivan" ? "🧔 Meus pendentes" : "👩‍🦰 Meus pendentes";
+        document.getElementById("profileBadge").textContent = prefs.person === "ivan" ? "Visão de Ivan" : "Visão de Thaís";
+        document.getElementById("filterNamePill").textContent = viewName;
+        document.getElementById("deviceTitle").textContent = prefs.device === "mobile" ? "Celular" : "Computador";
+
+        const stepsList = document.getElementById("stepsList");
+        const deviceTip = document.getElementById("deviceTip");
+
+        const steps = prefs.device === "mobile"
+          ? [
+              "Abra o app <strong>Google Planilhas</strong> no celular e toque na aba <span class=\"code-chip\">Lançamentos</span> lá embaixo.",
+              "Toque nos <strong>três pontinhos (⋯)</strong> no canto superior direito → <span class=\"code-chip\">Visualizações de filtro</span>.",
+              "Escolha <span class=\"code-chip\">" + viewName + "</span> (filtra só no seu celular, sem alterar a tela de ninguém).",
+              "As linhas sem dono estão em <strong>dourado</strong>. Dê toque duplo em <span class=\"code-chip\">De quem é</span>, escolha no menu que sobe e marque <span class=\"code-chip\">Conferido = TRUE</span>.",
+              "Terminou? Toque no <strong>X</strong> no topo esquerdo para fechar a visualização filtrada."
+            ]
+          : [
+              "Abra a planilha no navegador e clique na aba <span class=\"code-chip\">Lançamentos</span>.",
+              "No menu superior, clique em <span class=\"code-chip\">Dados</span> → <span class=\"code-chip\">Visualizações de filtro</span>.",
+              "Selecione <span class=\"code-chip\">" + viewName + "</span>. As bordas ficam pretas indicando visão privada.",
+              "Nas linhas douradas, clique na setinha da coluna <span class=\"code-chip\">De quem é</span> (J) e marque <span class=\"code-chip\">Conferido</span> (K).",
+              "Para voltar à tabela completa, clique no <strong>X</strong> na ponta direita da barra preta superior."
+            ];
+
+        stepsList.innerHTML = steps.map(function (txt, idx) {
+          return "<li class=\"step-item\"><span class=\"step-num\">" + (idx + 1) + "</span><span class=\"step-body\">" + txt + "</span></li>";
+        }).join("");
+
+        deviceTip.innerHTML = prefs.device === "mobile"
+          ? "<strong>Dica de celular:</strong> as colunas técnicas (Fonte, Sugestão e Data da compra) ficam recolhidas para você preencher quase sem precisar rolar para os lados."
+          : "<strong>Por que 'Visualizações de filtro'?</strong> Porque filtra apenas a sua aba de navegador; se os dois abrirem juntos, ninguém atrapalha a tela do outro.";
+      }
+
+      btnIvan.addEventListener("click", function () { prefs.person = "ivan"; savePrefs(); renderSelectorsAndSteps(); });
+      btnThais.addEventListener("click", function () { prefs.person = "thais"; savePrefs(); renderSelectorsAndSteps(); });
+      btnMobile.addEventListener("click", function () { prefs.device = "mobile"; savePrefs(); renderSelectorsAndSteps(); });
+      btnDesktop.addEventListener("click", function () { prefs.device = "desktop"; savePrefs(); renderSelectorsAndSteps(); });
+      renderSelectorsAndSteps();
+
+      // Stepper 3 Atos
+      const actBtns = document.querySelectorAll(".act-btn");
+      const actDetail = document.getElementById("actDetail");
+      function selectAct(idx) {
+        actBtns.forEach(function (b, i) { b.setAttribute("aria-selected", String(i === idx)); });
+        actDetail.innerHTML = "<p><strong>" + ACTS[idx].title + ":</strong> " + ACTS[idx].text + "</p>";
+      }
+      actBtns.forEach(function (b) {
+        b.addEventListener("click", function () { selectAct(Number(b.getAttribute("data-act"))); });
+      });
+      selectAct(0);
+
+      // Simulador Vivo
+      const simRow = document.getElementById("simRow");
+      const simSelect = document.getElementById("simSelect");
+      const simCheck = document.getElementById("simCheck");
+      const simStatusBadge = document.getElementById("simStatusBadge");
+      const simFeedback = document.getElementById("simFeedback");
+
+      function updateSim() {
+        const val = simSelect.value;
+        simRow.setAttribute("data-state", val);
+        const badges = {
+          pendente: "Pendente (dourado)",
+          Casa: "🪻 Casa (lavanda)",
+          Ivan: "🧔 Ivan (petróleo)",
+          "Thaís": "👩‍🦰 Thaís (furta-cor)",
+          Terceiro: "👥 Terceiro (cinza)"
+        };
+        simStatusBadge.textContent = badges[val] || val;
+        if (val === "pendente") {
+          simFeedback.textContent = "Sem dono ainda: na aba 'Meus pendentes' ela fica destacada em dourado esperando sua decisão.";
+        } else {
+          const confTxt = simCheck.checked ? " e marcada como conferida!" : " — agora marque 'Conferido' ao lado.";
+          simFeedback.textContent = "Ótimo! Atribuída a " + val + confTxt + " O painel e o acerto recalculam sozinhos.";
+        }
+      }
+      simSelect.addEventListener("change", updateSim);
+      simCheck.addEventListener("change", updateSim);
+      updateSim();
+
+      // Oráculo
+      const oracleSearch = document.getElementById("oracleSearch");
+      const oracleList = document.getElementById("oracleList");
+      const filterChips = document.querySelectorAll(".chip[data-filter]");
+
+      function renderOracle() {
+        const q = normalize(oracleSearch.value.trim());
+        const filtered = ORACLE_ITEMS.filter(function (item) {
+          const okChip = oracleFilter === "todos" || item.badge === oracleFilter;
+          if (!okChip) return false;
+          if (!q) return true;
+          return normalize(item.title + " " + item.keys + " " + item.rule + " " + item.badge).includes(q);
+        });
+
+        if (!filtered.length) {
+          oracleList.innerHTML = "<div class=\"tip-note\" style=\"grid-column:1/-1\">Nenhum exemplo encontrado para <strong>" +
+            oracleSearch.value.replace(/</g, "&lt;") + "</strong>. Se manteve a casa, é <strong>Casa</strong>; se foi só para um de vocês, escolha o nome da pessoa.</div>";
+          return;
+        }
+
+        oracleList.innerHTML = filtered.map(function (item) {
+          return "<article class=\"oracle-item\">" +
+            "<div class=\"oracle-top\"><span class=\"oracle-title\">" + item.title + "</span>" +
+            "<span class=\"tag-badge " + item.cls + "\">" + item.badge + "</span></div>" +
+            "<p class=\"oracle-rule\">" + item.rule + "</p></article>";
+        }).join("");
+      }
+
+      oracleSearch.addEventListener("input", renderOracle);
+      filterChips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          oracleFilter = chip.getAttribute("data-filter");
+          filterChips.forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
+          renderOracle();
+        });
+      });
+      renderOracle();
+
+      // Sub-abas Acertos & Validação
+      const tabAcertos = document.getElementById("tabAcertos");
+      const tabValidacao = document.getElementById("tabValidacao");
+      const panelAcertos = document.getElementById("panelAcertos");
+      const panelValidacao = document.getElementById("panelValidacao");
+
+      tabAcertos.addEventListener("click", function () {
+        tabAcertos.setAttribute("aria-selected", "true");
+        tabValidacao.setAttribute("aria-selected", "false");
+        panelAcertos.hidden = false;
+        panelValidacao.hidden = true;
+      });
+      tabValidacao.addEventListener("click", function () {
+        tabAcertos.setAttribute("aria-selected", "false");
+        tabValidacao.setAttribute("aria-selected", "true");
+        panelAcertos.hidden = true;
+        panelValidacao.hidden = false;
+      });
+
+      const semBtns = document.querySelectorAll(".sem-btn");
+      const semDetail = document.getElementById("semDetail");
+      function selectSem(kind) {
+        semBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-kind") === kind)); });
+        semDetail.textContent = SEM_INFO[kind];
+      }
+      semBtns.forEach(function (b) {
+        b.addEventListener("click", function () { selectSem(b.getAttribute("data-kind")); });
+      });
+      selectSem("aberto");
+
+      // Checklist da Sexta
+      const checklistBox = document.getElementById("checklistBox");
+      const checkCountPill = document.getElementById("checkCountPill");
+      const progressFill = document.getElementById("progressFill");
+      const doneBanner = document.getElementById("doneBanner");
+      const resetBtn = document.getElementById("resetChecklistBtn");
+
+      function saveChecklist() {
+        try { localStorage.setItem(STORAGE_CHECK, JSON.stringify(checklistState)); } catch (_) {}
+      }
+
+      function renderChecklist() {
+        const doneCount = checklistState.filter(Boolean).length;
+        checkCountPill.textContent = doneCount + " / " + CHECK_ITEMS.length + " feitos";
+        progressFill.style.width = Math.round((doneCount / CHECK_ITEMS.length) * 100) + "%";
+        doneBanner.hidden = doneCount < CHECK_ITEMS.length;
+
+        checklistBox.innerHTML = CHECK_ITEMS.map(function (label, idx) {
+          const checked = checklistState[idx];
+          return "<label class=\"check-item" + (checked ? " done" : "") + "\">" +
+            "<input type=\"checkbox\" data-idx=\"" + idx + "\"" + (checked ? " checked" : "") + ">" +
+            "<span>" + label + "</span></label>";
+        }).join("");
+
+        checklistBox.querySelectorAll("input[type='checkbox']").forEach(function (inp) {
+          inp.addEventListener("change", function () {
+            checklistState[Number(inp.getAttribute("data-idx"))] = inp.checked;
+            saveChecklist();
+            renderChecklist();
+          });
+        });
+      }
+
+      resetBtn.addEventListener("click", function () {
+        checklistState = [false, false, false, false];
+        saveChecklist();
+        renderChecklist();
+      });
+      renderChecklist();
+    })();
+  </script>
+</body>
+</html>

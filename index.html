@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#6B58A6">
+  <title>Thavan Apps · Casita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    :root {
+      --chao: #F4F1F9;
+      --papel: #FFFFFF;
+      --lavanda: #C9BBEB;
+      --lavanda050: #F1ECFB;
+      --lavanda-tinta: #6B58A6;
+      --tinta: #3A3150;
+      --apoio: #6E6487;
+      --linha: #DCD5EB;
+      --ivan: #5C969C;
+      --thais: #CA79A6;
+      --dourado: #E0BC84;
+      --r-sm: 10px;
+      --r-lg: 14px;
+      --f-display: "Fredoka", system-ui, sans-serif;
+      --f-body: "Nunito", system-ui, -apple-system, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --chao: #16131E;
+        --papel: #211D2E;
+        --lavanda: #9B88CC;
+        --lavanda050: #2C2640;
+        --lavanda-tinta: #C9BBEB;
+        --tinta: #F2EFF9;
+        --apoio: #B7AFC9;
+        --linha: #3A334D;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --chao: #16131E;
+      --papel: #211D2E;
+      --lavanda: #9B88CC;
+      --lavanda050: #2C2640;
+      --lavanda-tinta: #C9BBEB;
+      --tinta: #F2EFF9;
+      --apoio: #B7AFC9;
+      --linha: #3A334D;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--chao);
+      color: var(--tinta);
+      font-family: var(--f-body);
+      line-height: 1.5;
+      padding: 24px 16px 40px;
+    }
+
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-pill {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-sm);
+      background: linear-gradient(135deg, var(--lavanda), var(--thais));
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 1.65rem;
+      line-height: 1.1;
+      color: var(--tinta);
+    }
+
+    .subtitle {
+      margin: 2px 0 0;
+      font-size: 0.9rem;
+      color: var(--apoio);
+    }
+
+    .theme-btn {
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--linha);
+      background: var(--papel);
+      color: var(--tinta);
+      font-size: 1.15rem;
+      cursor: pointer;
+    }
+
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--papel);
+      border: 2px solid var(--lavanda);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(58, 49, 80, 0.08);
+    }
+
+    .app-card:focus-visible, .theme-btn:focus-visible {
+      outline: 3px solid var(--ivan);
+      outline-offset: 2px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--lavanda050);
+      color: var(--lavanda-tinta);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .app-title {
+      margin: 0;
+      font-family: var(--f-display);
+      font-weight: 600;
+      font-size: 1.35rem;
+      color: var(--lavanda-tinta);
+    }
+
+    .app-desc {
+      margin: 0;
+      font-size: 0.96rem;
+      color: var(--apoio);
+    }
+
+    .cta {
+      align-self: flex-start;
+      margin-top: 4px;
+      padding: 10px 16px;
+      border-radius: var(--r-sm);
+      background: var(--lavanda-tinta);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    :root[data-theme="dark"] .cta { color: #16131E; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .cta { color: #16131E; }
+    }
+
+    .future-box {
+      background: var(--lavanda050);
+      border: 1px dashed var(--linha);
+      border-radius: var(--r-lg);
+      padding: 16px;
+      font-size: 0.9rem;
+      color: var(--apoio);
+    }
+
+    .future-box strong {
+      color: var(--tinta);
+    }
+
+    .cats-strip {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.84rem;
+      color: var(--apoio);
+    }
+
+    .pet-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-pill" aria-hidden="true">🪻</div>
+        <div>
+          <h1>Thavan Apps</h1>
+          <p class="subtitle">Ferramentas rápidas da Casita · Ivan &amp; Thaís</p>
+        </div>
+      </div>
+      <button type="button" class="theme-btn" id="themeBtn" aria-label="Alternar tema claro ou escuro" title="Alternar tema">☀️</button>
+    </header>
+
+    <a class="app-card" href="./financas/">
+      <div class="card-head">
+        <span class="badge">Ativo · Web &amp; Mobile</span>
+        <span aria-hidden="true">↗</span>
+      </div>
+      <h2 class="app-title">🪻 Finanças da Casita · Guia Rápido</h2>
+      <p class="app-desc">
+        Passo a passo adaptado para celular e computador, simulador ao vivo da planilha, buscador "De quem é essa compra?" e checklist da Sexta das Finanças.
+      </p>
+      <span class="cta">Abrir Guia Interativo</span>
+    </a>
+
+    <section class="future-box">
+      <strong>Espaço reservado para os próximos apps da casa</strong> — lista de compras, preço por quilo e rotinas de Kiara e Rakin podem ganhar páginas próprias aqui sem alterar os links existentes.
+    </section>
+
+    <div class="cats-strip" aria-label="Moradores da casa">
+      <span class="pet-pill"><span class="dot" style="background:#5C969C"></span>Ivan</span>
+      <span class="pet-pill"><span class="dot" style="background:#CA79A6"></span>Thaís</span>
+      <span class="pet-pill"><span class="dot" style="background:#E6923C"></span>Kiara</span>
+      <span class="pet-pill"><span class="dot" style="background:#98949C"></span>Rakin</span>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const btn = document.getElementById("themeBtn");
+      const root = document.documentElement;
+      const saved = localStorage.getItem("thavan_theme");
+      if (saved === "light" || saved === "dark") {
+        root.setAttribute("data-theme", saved);
+      }
+      function updateIcon() {
+        const dark = root.getAttribute("data-theme") === "dark" ||
+          (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        btn.textContent = dark ? "🌙" : "☀️";
+      }
+      updateIcon();
+      btn.addEventListener("click", function () {
+        const darkNow = root.getAttribute("data-theme") === "dark" ||
+          (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        const next = darkNow ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("thavan_theme", next);
+        updateIcon();
+      });
+    })();
+  </script>
+</body>
+</html>
