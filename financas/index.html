@@ -694,6 +694,10 @@
       gap: 8px;
     }
 
+    @media (max-width: 520px) {
+      .pix-grid { grid-template-columns: 1fr; }
+    }
+
     .pix-field {
       background: var(--chao);
       border-radius: 8px;
@@ -702,6 +706,21 @@
     }
 
     .pix-field strong { display: block; color: var(--lavanda-tinta); font-size: 0.78rem; text-transform: uppercase; }
+
+    .pote-bar-track {
+      height: 8px;
+      border-radius: 999px;
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      overflow: hidden;
+      margin: 6px 0 4px;
+    }
+
+    .pote-bar-fill {
+      height: 100%;
+      width: 35%;
+      background: linear-gradient(90deg, var(--thais), var(--lavanda-tinta));
+    }
 
     .semaforo-grid {
       display: grid;
@@ -878,7 +897,7 @@
       </div>
 
       <div class="shield-banner">
-        <strong>Você nunca vai quebrar a planilha.</strong> Todas as fórmulas, metas e cálculos vivem protegidos em abas ocultas. Os extratos entram sozinhos — nossa única missão é marcar <strong>De quem é</strong> cada compra.
+        <strong>Você nunca vai quebrar a planilha.</strong> Todas as fórmulas, metas e cálculos vivem protegidos em abas ocultas. A aba <code>Lançamentos</code> é a nossa <strong>fonte única da verdade (SSOT)</strong> para tudo — inclusive acertos, aportes e potes — atualizada todo <strong>último dia útil do mês</strong> com os extratos fechados. Nossa missão na rotina é só marcar <strong>De quem é</strong> e conferir a <strong>Natureza</strong> (<code>OPEX</code> × <code>CAPEX</code>).
       </div>
 
       <div class="acts-tabs" role="tablist" aria-label="Três atos do fluxo">
@@ -973,37 +992,53 @@
       </div>
     </section>
 
-    <!-- Bloco 4: Acertos & Validação -->
+    <!-- Bloco 4: Potes e Acertos & Insights do Robôzinho -->
     <section class="card" aria-labelledby="t4">
       <div class="card-header">
-        <h2 id="t4">⚖️ Acertos &amp; 🚦 Validação</h2>
+        <h2 id="t4">🪻 Potes e Acertos &amp; 🤖 Insights</h2>
       </div>
 
-      <div class="subtabs" role="tablist" aria-label="Alternar entre Acertos e Validação">
-        <button type="button" class="subtab-btn" role="tab" id="tabAcertos" aria-selected="true">⚖️ Aba Acertos</button>
-        <button type="button" class="subtab-btn" role="tab" id="tabValidacao" aria-selected="false">🚦 Aba Validação</button>
+      <div class="subtabs" role="tablist" aria-label="Alternar entre Potes e Acertos e Insights do Robôzinho">
+        <button type="button" class="subtab-btn" role="tab" id="tabAcertos" aria-selected="true">🪻 Potes e Acertos</button>
+        <button type="button" class="subtab-btn" role="tab" id="tabValidacao" aria-selected="false">🤖 Insights do Robôzinho</button>
       </div>
 
       <div id="panelAcertos">
         <div class="mock-acerto">
-          <div class="mock-acerto-title">⚖️ Falta acertar (colunas H:L · exemplo ilustrativo)</div>
-          <div class="mock-acerto-phrase">👩‍🦰 Thaís completa R$ 500 na 🪻 Casa</div>
-          <div class="mock-acerto-sub">No dia a dia real, esse bloco espelha sozinho o mês escolhido no seletor C2 do Painel.</div>
+          <div class="mock-acerto-title">🪻 Modelo "Meu, Seu, Nosso" (exemplo ilustrativo)</div>
+          <div class="mock-acerto-phrase">🔁 Rotina equilibrada · 🔧 Montagem quitando no seu ritmo</div>
+          <div class="mock-acerto-sub">O pote da Casa (Nosso) se divide em <strong>OPEX (rotina do mês)</strong> e <strong>CAPEX (montagem acumulada desde jun/26)</strong>, alimentado 100% pela aba <code>Lançamentos</code>.</div>
         </div>
-        <p style="margin:12px 0 8px;font-size:0.92rem;font-weight:700;">Fez o Pix? Preencha 1 linha na tabela da aba <code>Acertos</code>:</p>
-        <div class="pix-grid">
-          <div class="pix-field"><strong>1 · Data</strong>Dia exato do Pix</div>
-          <div class="pix-field"><strong>2 · De quem</strong>Quem enviou (Ivan/Thaís)</div>
-          <div class="pix-field"><strong>3 · Para quem</strong>Quem recebeu (ou Casa)</div>
-          <div class="pix-field"><strong>4 · Valor</strong>Valor transferido</div>
-          <div class="pix-field"><strong>5 · Descrição</strong>Ex.: Acerto da Casa mês MM</div>
-          <div class="pix-field"><strong>6 · Conta no acerto?</strong>Marque <strong>Sim</strong> p/ abater</div>
+
+        <div class="pix-grid" style="margin-top:10px;">
+          <div class="pix-field">
+            <strong>🔁 Rotina do Mês (OPEX)</strong>
+            Mercado, luz, internet e pets. Fecha no mês pela cota proporcional de renda (ex.: ~R$ 150 de ajuste).
+          </div>
+          <div class="pix-field">
+            <strong>🔧 Montagem Acumulada (CAPEX)</strong>
+            Móveis, eletros e obra desde jun/26.
+            <div class="pote-bar-track" aria-hidden="true"><div class="pote-bar-fill"></div></div>
+            <small>Mostra o % já pago, saldo restante e quantos meses faltam no ritmo escolhido (ex.: R$ 300/mês).</small>
+          </div>
+          <div class="pix-field">
+            <strong>🧔 Pote Ivan (Meu) &amp; 👩‍🦰 Pote Thaís (Seu)</strong>
+            Saldo livre individual do mês após a cota da rotina + gastos pessoais.
+          </div>
+          <div class="pix-field">
+            <strong>🧾 Extrato sem retrabalho</strong>
+            Qualquer Pix ou aporte marcado em <code>Lançamentos</code> como <code>Acerto OPEX</code>, <code>Acerto CAPEX</code> ou <code>Aporte Pote</code> aparece sozinho na tabela <code>A:F</code>.
+          </div>
+        </div>
+
+        <div class="tip-note" style="margin-top:10px;">
+          <strong>📘 Quer conferir combinados e fórmulas?</strong> A aba <code>Diretrizes e Combinados</code> resume todas as regras da Casa em português simples + mapa completo de arquivos e scripts.
         </div>
       </div>
 
       <div id="panelValidacao" hidden>
-        <p style="margin:0 0 10px;font-size:0.92rem;">A aba <code>Validação</code> aponta só o que pede um olhar humano. Toque em um status:</p>
-        <div class="semaforo-grid" role="group" aria-label="Status da Validação">
+        <p style="margin:0 0 10px;font-size:0.92rem;">A aba <code>Insights do Robôzinho</code> destaca apenas o que pede um olhar humano (tetos, juros/IOF, desvios de cota e itens suspeitos). Toque em um status:</p>
+        <div class="semaforo-grid" role="group" aria-label="Status de Insights do Robôzinho">
           <button type="button" class="sem-btn" data-kind="aberto" aria-pressed="true">
             <span class="sem-title">🔴 aberto</span>
             <span class="sem-desc">Algo novo pede revisão</span>
@@ -1027,7 +1062,7 @@
     <!-- Bloco 5: Checklist Vivo da Sexta -->
     <section class="card" aria-labelledby="t5">
       <div class="card-header">
-        <h2 id="t5">✅ Checklist da Sexta das Finanças</h2>
+        <h2 id="t5">✅ Checklist da Rotina</h2>
         <span class="pill" id="checkCountPill">0 / 4 feitos</span>
       </div>
 
@@ -1038,10 +1073,10 @@
       <div class="checklist" id="checklistBox"></div>
 
       <div class="done-banner" id="doneBanner" hidden>
-        🎉 Tudo fechado por esta semana! Zero pendentes na Casita.
+        🎉 Tudo fechado por agora! Zero pendentes na Casita.
       </div>
 
-      <button type="button" class="btn-ghost" id="resetChecklistBtn">Zerar para a próxima sexta</button>
+      <button type="button" class="btn-ghost" id="resetChecklistBtn">Zerar para o próximo ciclo</button>
     </section>
   </main>
 
@@ -1050,7 +1085,7 @@
       <strong>📌 Fixar no celular como app:</strong> no Android (Chrome), toque em <strong>⋯ → Adicionar à tela inicial</strong>. No iPhone (Safari), toque em <strong>Compartilhar → Adicionar à Tela de Início</strong>.
     </div>
     <div>
-      🔒 Os links privados da <strong>Planilha</strong> e do <strong>Looker Studio</strong> ficam no Google Doc <em>"🪻 Guia Interativo da Casita (Abrir App)"</em> dentro da pasta <code>02_Financas</code> no Google Drive.
+      🔒 O link privado da <strong>Planilha Finanças Ivan &amp; Thaís</strong> fica no Google Doc <em>"🪻 Guia Interativo da Casita (Abrir App)"</em> dentro da pasta <code>02_Financas</code> no Google Drive.
     </div>
     <div class="pets-note">
       Identidade visual Thavan ·
@@ -1069,47 +1104,48 @@
 
       const ACTS = [
         {
-          title: "🤖 Robô importa os extratos",
-          text: "As faturas dos cartões e extratos bancários entram automaticamente na aba Lançamentos. Ninguém precisa digitar data, loja ou valor centavo por centavo."
+          title: "🤖 Último dia útil: robô sobe os extratos",
+          text: "No último dia útil de cada mês, os extratos fechados entram na aba Lançamentos — nossa fonte única (SSOT) para despesas, receitas, aportes e acertos — já preparando o casal para o mês seguinte."
         },
         {
-          title: "👥 O casal classifica os pendentes (5 a 10 min)",
-          text: "Cada pessoa abre apenas a sua visualização filtrada ('Meus pendentes'), escolhe quem é o dono (Casa, Ivan, Thaís ou Terceiro) nos itens dourados e marca Conferido."
+          title: "👥 Casal marca 'De quem é' e confere 'Natureza' (5–10 min)",
+          text: "Cada pessoa abre sua visão filtrada ('Meus pendentes'), preenche 'De quem é' nas linhas douradas, confere se a Natureza (OPEX, CAPEX, Acerto OPEX/CAPEX, Aporte Pote, Receita ou Neutro) faz sentido e marca Conferido."
         },
         {
-          title: "⚖️ A planilha fecha a conta sem calculadora",
-          text: "Com base na cota proporcional à renda daquele mês e no que cada um já pagou da Casa, a aba Acertos exibe exatamente quem faz o Pix de acerto."
+          title: "⚖️ Painel e Potes recalculam sozinhos",
+          text: "Tudo em Lançamentos alimenta automaticamente _BI_Mensal, Painel e Potes e Acertos — separando Rotina do Mês (OPEX), Montagem Acumulada (CAPEX) e os potes individuais Meu e Seu."
         }
       ];
 
       const ORACLE_ITEMS = [
-        { title: "Mercado & Supermercado", badge: "Casa", cls: "tag-casa", keys: "mercado supermercado guanabara atacadao carrefour assai feira hortifruti", rule: "Compras de despensa, alimentos da casa e compras semanais (ex.: Guanabara, Atacadão)." },
-        { title: "Padaria & Café do dia a dia", badge: "Casa", cls: "tag-casa", keys: "padaria pao leite cafe manha lanche casa", rule: "Pão, café, frios e compras cotidianas consumidas juntos em casa." },
-        { title: "Contas Fixas da Casa", badge: "Casa", cls: "tag-casa", keys: "luz energia gas internet claro condominio aluguel agua conta fixa", rule: "Despesas estruturais do apartamento: luz, gás, internet, condomínio e aluguel." },
-        { title: "Kiara & Rakin (Pets)", badge: "Casa", cls: "tag-casa", keys: "kiara rakin gato gatos pet pets racao areia sache veterinario petlove", rule: "Ração, sachês, areia higiênica, brinquedos, tapetes e veterinário da Kiara e do Rakin." },
-        { title: "Limpeza & Manutenção", badge: "Casa", cls: "tag-casa", keys: "limpeza detergente sabao lampada reforma conserto sifao filtro ferramenta casa", rule: "Produtos de limpeza, lâmpadas, consertos hidráulicos/elétricos e organização do lar." },
-        { title: "Eletrodomésticos & Utensílios", badge: "Casa", cls: "tag-casa", keys: "microondas micro-ondas cafeteira sanduicheira air fryer panela movel moveis", rule: "Eletrodomésticos e móveis de uso compartilhado da Casita." },
-        { title: "Transporte Conjunto", badge: "Casa", cls: "tag-casa", keys: "uber 99 taxi mercado compras juntos casal", rule: "Corridas de aplicativo feitas juntos ou transportando compras da casa (ex.: volta do mercado)." },
-        { title: "Farmácia Básica da Casa", badge: "Casa", cls: "tag-casa", keys: "farmacia remedio curativo basico casa", rule: "Itens de farmácia e higiene compartilhados da casa. Remédios exclusivos ficam com cada um." },
-        { title: "Eletrônicos & Impressão 3D do Ivan", badge: "Ivan", cls: "tag-ivan", keys: "ssd pc computador peca impressora 3d filamento bico ferramenta pessoal ivan", rule: "Peças de computador, SSD, filamentos, bicos 3D e ferramentas exclusivas de Ivan." },
-        { title: "Roupas, Assinaturas & Estudos (Ivan)", badge: "Ivan", cls: "tag-ivan", keys: "roupa tenis curso livro faculdade mestrado ia assinatura pessoal ivan", rule: "Vestuário, cursos, livros e assinaturas digitais estritamente individuais de Ivan." },
-        { title: "Estética, Salão & Roupas (Thaís)", badge: "Thaís", cls: "tag-thais", keys: "salao estetica cabelo unha maquiagem roupa sapato acessorio bolsa thais", rule: "Cuidados pessoais de estética, vestuário e acessórios individuais de Thaís." },
-        { title: "Cursos & Gastos Individuais (Thaís)", badge: "Thaís", cls: "tag-thais", keys: "curso livro formacao lanche fora pessoal trabalho thais", rule: "Formações, livros e refeições individuais fora da rotina conjunta da casa." },
-        { title: "Compras para Família ou Amigos", badge: "Terceiro", cls: "tag-terceiro", keys: "terceiro pai mae irmao irma amigo reembolso pix devolvido presente outro", rule: "Compra paga no seu cartão para outra pessoa que vai devolver 100% do valor. Não altera o rateio do casal." },
-        { title: "Compra Mista (ex.: Mercado Livre)", badge: "Mista", cls: "tag-mista", keys: "mercado livre amazon pedido junto misto mista fatia dividido parcelado", rule: "Quando o mesmo pedido traz itens da Casa e pessoais, divide-se proporcionalmente usando 'Mercado Livre - fatura MM/AA - Fatia <Nome>'." }
+        { title: "Mercado & Supermercado", badge: "Casa", cls: "tag-casa", keys: "mercado supermercado guanabara atacadao carrefour assai feira hortifruti opex", rule: "Natureza: OPEX · Compras de despensa, alimentos da casa e feiras semanais." },
+        { title: "Padaria & Café do dia a dia", badge: "Casa", cls: "tag-casa", keys: "padaria pao leite cafe manha lanche casa opex", rule: "Natureza: OPEX · Pão, café, frios e compras cotidianas consumidas juntos em casa." },
+        { title: "Contas Fixas da Casa", badge: "Casa", cls: "tag-casa", keys: "luz energia gas internet claro condominio aluguel agua conta fixa opex", rule: "Natureza: OPEX · Despesas estruturais recorrentes: luz, gás, internet, condomínio e aluguel." },
+        { title: "Kiara & Rakin (Pets)", badge: "Casa", cls: "tag-casa", keys: "kiara rakin gato gatos pet pets racao areia sache veterinario petlove opex", rule: "Natureza: OPEX · Ração, sachês, areia higiênica, tapetes e veterinário da Kiara e do Rakin." },
+        { title: "Limpeza & Rotina do Lar", badge: "Casa", cls: "tag-casa", keys: "limpeza detergente sabao filtro opex", rule: "Natureza: OPEX · Produtos de limpeza e reposições frequentes da rotina doméstica." },
+        { title: "Obra, Reforma, Móveis & Eletros", badge: "Casa", cls: "tag-casa", keys: "microondas cafeteira movel moveis reforma manutencao obramax leroy ferramenta montagem capex", rule: "Natureza: CAPEX · Compras estruturais para montar ou melhorar a Casita (móveis, eletros, reforma, interfone)." },
+        { title: "Aporte no Pote Casa & Acerto entre vocês", badge: "Casa", cls: "tag-casa", keys: "pix aporte pote acerto opex capex transferencia neutro", rule: "Natureza: Aporte Pote (depósito no Inter Casa), Acerto OPEX/CAPEX (Pix de compensação entre o casal) ou Neutro (movimentação entre contas próprias)." },
+        { title: "Transporte Conjunto", badge: "Casa", cls: "tag-casa", keys: "uber 99 taxi mercado compras juntos casal", rule: "Natureza: OPEX · Corridas de aplicativo feitas juntos ou transportando compras da casa." },
+        { title: "Farmácia Básica da Casa", badge: "Casa", cls: "tag-casa", keys: "farmacia remedio curativo basico casa", rule: "Natureza: OPEX · Itens de farmácia e higiene compartilhados. Remédios individuais ficam com cada um." },
+        { title: "Eletrônicos & Impressão 3D do Ivan", badge: "Ivan", cls: "tag-ivan", keys: "ssd pc computador peca impressora 3d filamento bico ferramenta pessoal ivan", rule: "Natureza: OPEX ou CAPEX pessoal · Peças de computador, SSD, filamentos e ferramentas exclusivas de Ivan." },
+        { title: "Roupas, Assinaturas & Estudos (Ivan)", badge: "Ivan", cls: "tag-ivan", keys: "roupa tenis curso livro faculdade mestrado ia assinatura pessoal ivan", rule: "Natureza: OPEX · Vestuário, cursos, livros e assinaturas digitais estritamente individuais de Ivan." },
+        { title: "Estética, Salão & Roupas (Thaís)", badge: "Thaís", cls: "tag-thais", keys: "salao estetica cabelo unha maquiagem roupa sapato acessorio bolsa thais", rule: "Natureza: OPEX · Cuidados pessoais de estética, vestuário e acessórios individuais de Thaís." },
+        { title: "Cursos & Gastos Individuais (Thaís)", badge: "Thaís", cls: "tag-thais", keys: "curso livro formacao lanche fora pessoal trabalho thais", rule: "Natureza: OPEX · Formações, livros e refeições individuais fora da rotina conjunta da casa." },
+        { title: "Compras para Família ou Amigos", badge: "Terceiro", cls: "tag-terceiro", keys: "terceiro pai mae irmao irma amigo reembolso pix devolvido presente outro neutro", rule: "Natureza: Neutro/Terceiro · Compra paga para outra pessoa que vai devolver 100% do valor." },
+        { title: "Compra Mista (ex.: Mercado Livre)", badge: "Mista", cls: "tag-mista", keys: "mercado livre amazon pedido junto misto mista fatia dividido parcelado", rule: "Cada fatia ganha uma linha própria em Lançamentos usando 'Mercado Livre - fatura MM/AA - Fatia <Nome>' com sua Natureza." }
       ];
 
       const SEM_INFO = {
-        aberto: "🔴 Status aberto (fundo coral): a Validação encontrou algo que ainda não foi visto — como um teto de gasto acima do previsto ou cobrança de IOF/juros. Confira clicando em '↗ abrir linha'.",
-        ciente: "🟡 Status ciente (fundo dourado): vocês já abriram o lançamento, entenderam o motivo e optaram por deixar assim (ex.: 'sabemos por que o transporte subiu neste mês').",
-        resolvido: "🟢 Status resolvido (fundo bambu): a divergência foi corrigida ou ajustada na aba Lançamentos / Acertos."
+        aberto: "🔴 Status aberto (fundo coral): a aba Insights do Robôzinho encontrou algo para atenção — teto estourado, IOF/juros ou desvio de cota. Confira clicando em '↗ abrir linha'.",
+        ciente: "🟡 Status ciente (fundo dourado): vocês já abriram o lançamento, entenderam o motivo e optaram por deixar assim neste mês.",
+        resolvido: "🟢 Status resolvido (fundo bambu): a divergência foi corrigida direto na fonte única Lançamentos."
       };
 
       const CHECK_ITEMS = [
-        "Abrir Lançamentos com 'Meus pendentes' e classificar todas as linhas douradas",
+        "Abrir Lançamentos com 'Meus pendentes', marcar 'De quem é' e conferir 'Natureza' (OPEX × CAPEX)",
         "Marcar 'Conferido = TRUE' nas compras que você acabou de revisar",
-        "Conferir o valor e quem paga no bloco '⚖️ Falta acertar' (aba Acertos)",
-        "Se houve Pix de acerto, lançar em Acertos com 'Conta no acerto? = Sim'"
+        "Conferir '🔁 Rotina (OPEX)' e '🔧 Montagem (CAPEX)' na aba 'Potes e Acertos'",
+        "No último dia útil do mês, subir os extratos fechados em Lançamentos e revisar 'Insights do Robôzinho'"
       ];
 
       // Estado persistido
